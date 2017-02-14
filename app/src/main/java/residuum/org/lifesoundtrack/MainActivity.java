@@ -122,4 +122,7 @@ public class MainActivity extends AppCompatActivity {
     public void startOtherServices() {
         stepDetector.startStepDetection();
     }
+
+    public void addSonification(String source, Object[] args) {
+    }
 }

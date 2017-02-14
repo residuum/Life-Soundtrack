@@ -121,6 +121,9 @@ public final class Binding {
                 activity.addDebugState(args);
                 writeState(args);
             }
+            if (source.equals("analyzed-r") || source.equals("analyzed-l")){
+                activity.addSonification(source, args);
+            }
         }
 
         @Override
@@ -182,6 +185,8 @@ public final class Binding {
         // Configure the audio glue
         PdBase.setReceiver(receiver);
         PdBase.subscribe("state");
+        PdBase.subscribe("analyzed-r");
+        PdBase.subscribe("analyzed-l");
         loadPatch();
         PdBase.sendFloat("rand-seed", new Date().getTime());
         AudioParameters.init(this.activity);
